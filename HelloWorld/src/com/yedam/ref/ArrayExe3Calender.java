@@ -43,11 +43,16 @@ public class ArrayExe3Calender {
 		//3월 1~31 달력 콘솔 출력 (print: 옆으로 쭉 출력 vs println : 줄바꿈 )
 		String[] days= {"Sun","Mon","Tue","Wed","Thu","Fri","Sat"};
 		for(String day:days) {
-			System.out.print(" "+day);
+			if (day.equals("Sun")  ) {
+                System.out.print("\u001B[31m " + day + "\u001B[0m"); // 빨간색
+            } 
+			else {
+                System.out.print(" " + day);
+            }
 			
 		}
 		System.out.println();// 줄바꿈
-		int month=2;
+		int month=3;
 		//3월 1일이 토요일
 		int space = getFirstDay(month); //1일의 위치 값
 		int lastDate =getLastDay(month);// 말일의 값
@@ -56,18 +61,24 @@ public class ArrayExe3Calender {
 		}
 		//날짜 출력."1"-> 1:Integer.parseInt()
 		for(int d=1; d<=lastDate;d++) {
-			if(String.valueOf(d).length()==1) {// 1 --->"1" String.valueOf()
-				System.out.print("   "+d); // 숫자를 문자값으로 변환한 길이가 1인 경우 공백 세번 넣기
+			
+			if (month == 3 && d == 21) {
+		        System.out.print(" 테스트"); // 자리 맞추기 위해 공백 추가
+		    } else if(String.valueOf(d).length()==1) {// 1 --->"1" String.valueOf()
+		    	  System.out.print("   " + d); // 숫자를 문자값으로 변환한 길이가 1인 경우 공백 세번 넣기
 			}else if(String.valueOf(d).length()==2) {
-				System.out.print("  "+d);// 숫자를 문자값으로 변환한 길이가 2인 경우 공백 두번 넣기
+				 System.out.print("  " + d);// 숫자를 문자값으로 변환한 길이가 2인 경우 공백 두번 넣기
 			}
 			
 			if((space+d)%7==0) {//7일이 지나면 줄바꿈
 				
 				System.out.println(" ");
 			}
-				
+		
 		}
+		
+		
+		
 	}
 
 }
