@@ -28,11 +28,15 @@ public class Member { //public : 공용, 다른 클래스에서 접근가능 vs 
 		this.score=score;
 		
 	}
+	
 	public  String getName() {
 		 return name;
 	}
 	public int getScore() {
 		return score;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public void setScore(int score) {
 		if(score<0 || score>100) {

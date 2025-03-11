@@ -25,14 +25,14 @@ public class VarExe6 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Member m1 =new Member();// member 인스턴스 생성
-		m1.name ="조정민";
-		System.out.println(m1.score);
+		m1.setName("조정민") ;
+		System.out.println(m1.getScore());
 		Member m2 =new Member();// member 인스턴스 생성
-		m2.name ="최민수";
+		m2.setName("최민수");
 		Member m3 =new Member();// member 인스턴스 생성
-		m3.name ="김병수";
+		m3.setName("김병수");
 		Member m4 =new Member();// member 인스턴스 생성
-		m4.name ="박인만";
+		m4.setName ("박인만");
 
 		
 		// 70~100사이의 임의 값을 점수 지정
@@ -43,8 +43,8 @@ public class VarExe6 {
 		
 		Member[] members = {m1,m2,m3,m4};
 		for(int i=0; i<members.length;i++) {
-			
-			members[i].score= (int)(Math.random()*31)+70;
+			int score=(int)(Math.random()*31)+70;
+			members[i].setScore(score);
 			
 		}
 		// 조회 이름을 입력 -> 점수 출력
@@ -53,8 +53,8 @@ public class VarExe6 {
 		String search = scn.nextLine();
 		// for 반복문 활용.member[i].name.equals(search)	
 		for(int i=0;i<members.length;i++) {
-			if(members[i].name.equals(search)) {
-				System.out.println("학생 점수는"+members[i].score);
+			if(members[i].getName().equals(search)) {
+				System.out.println("학생 점수는"+members[i].getScore());
 			}
 		}
 		
