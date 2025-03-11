@@ -12,6 +12,7 @@ public class HelloExe {
 		int score =100; // 정수형 데이터 타입 선언
 		
 		System.out.println("점수는 "+score+"점 입니다.");
+		System.out.println("수정된 부분");
 		//+연산자 문자열 사이 +는 연결 연산자
 		
 		
