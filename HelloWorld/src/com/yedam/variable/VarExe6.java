@@ -25,8 +25,8 @@ public class VarExe6 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Member m1 =new Member();// member 인스턴스 생성
-		m1.setName("조정민") ;
-		System.out.println(m1.getScore());
+		m1.setName("조정민") ; //setter.
+		System.out.println(m1.getScore()); //점수를 가지고올때 getScore 메소드
 		Member m2 =new Member();// member 인스턴스 생성
 		m2.setName("최민수");
 		Member m3 =new Member();// member 인스턴스 생성
