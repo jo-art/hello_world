@@ -15,7 +15,7 @@ public class MethodExe2 {
 	
 	
 	//메소드
-	// 매개변수로 객체가 온상황
+	
 	boolean add(Product prd) {
 		for(int i=0; i<store.length;i++) {
 		  if(store[i]==null) {

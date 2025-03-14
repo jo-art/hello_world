@@ -6,11 +6,23 @@ import java.util.Scanner;
  * 등록, 수정,삭제, 목록
  */
 public class BookMain {
+	
+	//2. 정적필드.할당
+	private static BookMain instance = new BookMain();
+	//싱글톤 1. 생성자 private 선언
+	
+	private BookMain() {
+		
+	}
+	//3. 외부에서 호출할 수 있는 getInstance
+	public static BookMain getInstance() {
+		return instance;
+	}
 	//배열 저장 공간
-	static Book[] bookStore = new Book[100]; 
-	static Scanner scn = new Scanner(System.in);
+	 Book[] bookStore = new Book[100]; 
+	 Scanner scn = new Scanner(System.in);
 	//순번생성
-	public static int getSequenceNo() {
+	public  int getSequenceNo() {
 		int max =0;
 		for(int i=0;i<bookStore.length;i++) {
 			if (bookStore[i]!=null&&bookStore[i].getOrderNo()>max) {
@@ -20,11 +32,11 @@ public class BookMain {
 		return max +1; //현재 마지막 번호+1
 	}//end of getSequenceNo()
 	
-	public static void add() {
+	public  void add() {
 		System.out.println("제목 입력>>");
 		String title =scn.nextLine();
 		for(int i=0; i<bookStore.length;i++) {
-			if(bookStore[i].getTitle().equals(title)) {
+			if(bookStore[i]!=null &&bookStore[i].getTitle().equals(title)) {
 				System.out.println("이미 등록된 책입니다.");
 				return;
 				
@@ -57,7 +69,7 @@ public class BookMain {
 			} 
 		}
 	} //end of add()
-	public static void edit() {
+	public  void edit() {
 		System.out.println("제목 입력>>");
 		String title =scn.nextLine();
 		if(title.isBlank()) {
@@ -107,7 +119,7 @@ public class BookMain {
 		}
 	}// end of edit
 	
-	public static void delete() {
+	public  void delete() {
 		System.out.println("삭제할 책 제목 입력>>");
 		String title =scn.nextLine();
 		if(title.isBlank()) {
@@ -129,7 +141,7 @@ public class BookMain {
 		}
 		
 	} //end of delete
-	public static void list() {
+	public  void list() {
 		//순번정렬
 		//오름 차순 정렬 순번1 > 순번 2,위치를 바꾸기/ 순번 1 null인경우 바꾸기, 제외 :순번 2 null
 		Book temp= null;
@@ -158,7 +170,7 @@ public class BookMain {
 		}
 	}
 	//list와 listCompany 에서 활용할 공통메소드.
-	public static Book[] searchList(String keyword) {
+	public  Book[] searchList(String keyword) {
 		Book[] list = new Book[100];
 		int idx =0;
 		for(int i=0; i<bookStore.length; i++) {
@@ -170,7 +182,7 @@ public class BookMain {
 		return list;
 	}//end of searchList.
 	
-	public static void listCompany() {
+	public  void listCompany() {
 		System.out.println("조회할 출판사 정보");
 		String company = scn.nextLine();
 		
@@ -186,7 +198,7 @@ public class BookMain {
 		}
 	} // end of listCompany().
 	
-	public static void detailInfo() {
+	public  void detailInfo() {
 	
 		
 		boolean isExist3=false;
@@ -209,7 +221,7 @@ public class BookMain {
 	}
 	
 	
-	public static void main(String[] args) {
+	public  void main(String[] args) { //정적메소드
 		// TODO Auto-generated method stub
 		
 		
@@ -251,7 +263,7 @@ public class BookMain {
 	}//end of main().
 	
 	//init 초기값 메소드
-	public static void init() {
+	public  void init() {
 		bookStore[0] = new Book("이것이자바다","신용권","한빛출",2000,1);
 		bookStore[1] = new Book("스크림트기초","박기초","우리출",2600,2);
 		bookStore[2] = new Book("Html,css","김하늘","가람출",2500,3);
