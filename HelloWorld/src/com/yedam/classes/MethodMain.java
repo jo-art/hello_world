@@ -36,6 +36,7 @@ public class MethodMain {
 				System.out.println("상품코드명입력 >>");
 				String code= scn.nextLine();
 				prd1.setProductCode(code);
+				
 				System.out.println("상품명입력 >>");
 				String name= scn.nextLine();
 				prd1.setProductCode(name);
