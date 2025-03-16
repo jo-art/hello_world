@@ -10,7 +10,7 @@ public class MethodMain {
 		officeApp();
 	}//end of main.
 
-	static void officeApp() {
+	static void officeApp() { //product  
 		// 목록,추가,수정,삭제.....
 		boolean run = true;
 		MethodExe2 m2 = new MethodExe2(); // 기능정의
@@ -21,6 +21,7 @@ public class MethodMain {
 		while (run) {
 			System.out.println("1.목록 2.추가 3.수정 4.삭제 9.종료");
 			int menu = scn.nextInt();
+			scn.nextLine(); // 입력 버퍼 비우기
 			switch (menu) {
 			case 1:
 				Product prd = new Product();
@@ -32,25 +33,64 @@ public class MethodMain {
 				}
 				break;
 			case 2:	
-				Product prd1 = new Product();
-				System.out.println("상품코드명입력 >>");
+				
+				System.out.print("상품코드명입력 >>");
 				String code= scn.nextLine();
-				prd1.setProductCode(code);
+			
 				
-				System.out.println("상품명입력 >>");
+				System.out.print("상품명입력 >>");
 				String name= scn.nextLine();
-				prd1.setProductCode(name);
-				System.out.println("가격입력>>");
-				int price = Integer.parseInt(scn.nextLine());
-				prd1.setPrice(price); 
-//				prd1.setProductCode(price);
-				 if(m2.add(new Product(code,name,price))) {
-					 System.out.println("등록성공");
-				 }
-			case 3 :
 				
+				System.out.print("가격입력>>");
+				int price = Integer.parseInt(scn.nextLine());
+			
+//				prd1.setProductCode(price);
+				Product addprd = new Product(code,name,price);
+				 if(m2.add(addprd)) {
+					 System.out.println("등록성공");
+				 } else {
+					 System.out.println("등록실패");
+				 }
 				 break;
+			case 3 :
+				System.out.print("상품코드명입력 >>");
+				code= scn.nextLine();
+			
+				
+				System.out.print("상품명입력 >>");
+				 name= scn.nextLine();
+				
+				System.out.print("가격입력>>");
+				 price = Integer.parseInt(scn.nextLine());
+				 Product mprd = new Product(code,name,price);
+				 if(m2.modify(mprd)) {
+					 System.out.println("변경 완료");
+				 }else {
+					 System.out.println("변경 실패");
+				 }
 				 
+				 break;
+			case 4:
+				System.out.print("상품코드명입력 >>");
+				code= scn.nextLine();
+			
+				
+				
+				 
+				 if(m2.remove(code)) {
+					 System.out.println("삭제 완료");
+				 }else {
+					 System.out.println("삭제 실패");
+				 }
+				
+				break;
+				
+			case 9:
+				System.out.println("프로그램 종료");
+				run=false;
+				break;
+			default:
+				System.out.println("메뉴를 다시 선택하세요");
 			}
 			
 

@@ -12,16 +12,17 @@ public class Book {
 	private int orderNo; // 순번
 	
 	//기본생성자
-	public Book(){}
+	private Book(){}
 
 	//필드를 매개값으로 받음.생성자 선언
-	public  Book(String title, String author,String company,int price) {
+	private  Book(String title, String author,String company,int price) {
 		this.title=title;
 		this.author=author;
 		this.company=company;
 		this.price=price;
 			
 	}
+	
 	
 	public Book(String title, String author, String company, int price, int orderNo) {
 
@@ -31,6 +32,11 @@ public class Book {
 //		this.price = price;
 		this(title,author,company,price); //this:생성된 인스턴스
 		this.orderNo = orderNo;
+	}
+	
+	private void getInstance() {
+		// TODO Auto-generated method stub
+
 	}
 	
 	//메소드

@@ -41,7 +41,10 @@ public class HelloExe {
 					public String pnum;
 					public int age=20;
 					
-			public void member(String name,String pnum,int age){
+			public Student() {
+				
+			}
+			public  Student(String name,String pnum,int age){
 				this.name=name;
 				this.pnum=pnum;
 				this.age=age;
@@ -70,14 +73,28 @@ public class HelloExe {
 		   h1.setPnum("010-1234-1234");
 		   h1.setAge(20);
 		   
-		   Student[] memAry = new Student[3];
-		   memAry[0] =new Student("홍길동","010-1234-1234",20);
+		 
 			
 		
+		   // 배열 [3] 만들고
+	        Student[] memAry = new Student[3];
+	        memAry[0] = new Student("홍길동", "010-1234-1234", 20);
+	        memAry[1] = new Student("김문식", "010-1234-1234", 23);
+	        memAry[2] = new Student("최문식", "010-1234-1234", 24);
 		
 		
-		
-		
+	        int Maxage=memAry[0].getAge();
+	        String Maxname="";
+		for(int i=0;i <memAry.length;i++) {
+			if(Maxage<memAry[i].getAge()) {
+				Maxname =memAry[i].getName();
+				Maxage=memAry[i].getAge(); 
+				
+				
+			}
+			
+		}
+		System.out.println("나이가 가장 많은 사람은"+Maxname+",나이는"+Maxage);
 		
 		
 		//배열 [3] 만들고
