@@ -48,7 +48,7 @@ public class Book {
 	}
 	//전체 도서 정보 출력 메소드
 	public String showBookInfo() {
-		String msg="제목은"+title+"/ 저자는"+author+"/ 출판사는"+company+"/ 가격은+price" ;
+		String msg="제목은"+title+"/ 저자는"+author+"/ 출판사는"+company+"/ 가격은"+price ;
 		return msg;
 	}
 	

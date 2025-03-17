@@ -50,7 +50,7 @@ public class FriendExe {
 		Friend1  f5=new Friend1("박성길","010-7408-7139");
 		CompanyFriend cf=(CompanyFriend) f4; //부모클래스 자식클래스에 대입 
 		if(f4 instanceof CompanyFriend) {
-			cf = (CompanyFriend)f4;
+			cf = (CompanyFriend)f4; //강제형변환
 			System.out.println(cf.getCompany());
 		}else {
 			System.out.println("Casting할수 없습니다.");

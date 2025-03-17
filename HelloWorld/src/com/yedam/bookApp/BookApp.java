@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class BookApp {
 	
 	public static void main(String[] args){
-//		BookMain mainApp1 = BookMain.getInstance();
-//		//mainApp.main(args);
+		BookMain mainApp = BookMain.getInstance();
+		mainApp.main(args);
 //		BookMain mainApp2 = BookMain.getInstance();
 //		
 //		mainApp1.add(); //1번에 등록
@@ -17,18 +17,11 @@ public class BookApp {
 //		
 //		mainApp2.list(); //2번목록
 //		
-		Scanner scn= new Scanner(System.in);
-		BookMain mainApp =BookMain.getInstance();
-		System.out.println("아이디 입력>>");
-		String userId =scn.nextLine();
-		System.out.println("비밀번호 입력>>");
 		
-		String userpw =scn.nextLine();
-		if(mainApp.login(userId, userpw)) {
-			mainApp.main(args);
-		}else {
-			System.out.println("🚨 로그인 실패로 인해 프로그램을 종료합니다.");
-		}
+//		BookMain mainApp =BookMain.getInstance();
+		
+		
+		
 		
 		// 숙제:
 				// 1번) BookMain의 main메소드를 통해서만 기능활용하도록 하세요.
