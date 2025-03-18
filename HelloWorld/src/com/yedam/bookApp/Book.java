@@ -12,7 +12,7 @@ public class Book {
 	private int orderNo; // 순번
 	
 	//기본생성자
-	private Book(){}
+	public Book(){}
 
 	//필드를 매개값으로 받음.생성자 선언
 	private  Book(String title, String author,String company,int price) {
