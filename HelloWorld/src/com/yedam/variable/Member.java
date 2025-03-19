@@ -16,6 +16,11 @@ public class Member { // public : 공용, 다른 클래스에서 접근가능 vs
 		this.name = name;
 		this.score = score;
 	}
+	//Set 컬렉션의 중복된 값
+	@Override
+	public int hashCode() {
+		return score;
+	}
 
 	// 생성자 자체가 인스턴스를 생성함
 	@Override
@@ -26,7 +31,12 @@ public class Member { // public : 공용, 다른 클래스에서 접근가능 vs
 		}
 		return false;
 	}
-
+	@Override
+		public String toString() {
+			// TODO Auto-generated method stub
+		return "Member{name='" + name + "', score=" + score + "}";
+		}
+	
 	// 클래스 : 메소드(기능) = 반환값 메소드명(매개값)
 	public void showInfo() { // 반환되는 값이 없을 때 void
 		System.out.println("이름은 " + name + ", 점수는" + score);

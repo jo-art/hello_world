@@ -1,6 +1,7 @@
 package com.yedam.bookApp;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  * 실행클래스
@@ -8,8 +9,43 @@ import java.util.Scanner;
 public class BookApp {
 	
 	public static void main(String[] args){
+	//	Book book = new Book();
+//		book.setTitle("자바스크립트 기초");
+//		book.setAuthor("신용권");
+//		book.setCompany("한빛출판사");
+//		book.setPrice(20000);
+//		
+//		BookJdbc dao = new BookJdbc();
+//		
+////		dao.insert(book);
+////		if(dao.insert(book)) {
+////			System.out.println("등록성공.");
+////		}else {
+////			System.out.println("등록실패");
+////		}
+//		
+//		
+//	
+////		if(dao.delete("46")) {
+////			System.out.println("삭제성공.");
+////		}else {
+////			System.out.println("삭제 실패");
+////		}
+//		
+//		
+//		List<Book> list = dao.list("");
+//		for(Book bk:list) {
+//			System.out.println(bk.showList());
+//		}
+		
+//		if(dao.update(book)) {
+//			System.out.println("수정성공.");
+//		}else {
+//			System.out.println("수정실패.");
+//		}
 		BookMain mainApp = BookMain.getInstance();
 		mainApp.main(args);
+		
 //		BookMain mainApp2 = BookMain.getInstance();
 //		
 //		mainApp1.add(); //1번에 등록

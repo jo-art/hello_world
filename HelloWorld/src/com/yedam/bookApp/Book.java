@@ -10,12 +10,12 @@ public class Book {
 	private String company; //출판사
 	private int price; //가격
 	private int orderNo; // 순번
-	
+	private String bookCode;
 	//기본생성자
 	public Book(){}
 
 	//필드를 매개값으로 받음.생성자 선언
-	private  Book(String title, String author,String company,int price) {
+	public  Book(String title, String author,String company,int price) {
 		this.title=title;
 		this.author=author;
 		this.company=company;
@@ -41,7 +41,7 @@ public class Book {
 	
 	//메소드
 	public String showList() {
-		return title+" "+author+" "+price;
+		return bookCode+" "+title+" "+author+" "+price;
 	}
 	public String showListWithNo() {
 		return orderNo+" "+ title+" "+author+" "+price;
@@ -86,6 +86,14 @@ public class Book {
 
 	public void setOrderNo(int orderNo) {
 		this.orderNo = orderNo;
+	}
+
+	public String getBookCode() {
+		return bookCode;
+	}
+
+	public void setBookCode(String bookCode) {
+		this.bookCode = bookCode;
 	}
 	
 	
