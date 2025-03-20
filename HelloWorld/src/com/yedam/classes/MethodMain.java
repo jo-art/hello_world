@@ -21,10 +21,13 @@ public class MethodMain {
 
 		while (run) {
 			System.out.println("1.목록 2.추가 3.수정 4.삭제 9.종료");
+			System.out.println("선택>>");
 			int menu = scn.nextInt();
 			scn.nextLine(); // 입력 버퍼 비우기
 			switch (menu) {
 			case 1:
+				
+				
 				Product prd = new Product();
 				prd.setProductName("ALL");
 				List<Product> list= m2.productList(prd);
@@ -36,7 +39,7 @@ public class MethodMain {
 			case 2:	
 				
 				System.out.print("상품코드명입력 >>");
-				String code= scn.nextLine();
+				 String code= scn.nextLine();
 			
 				
 				System.out.print("상품명입력 >>");
@@ -72,12 +75,11 @@ public class MethodMain {
 				 
 				 break;
 			case 4:
+				//상품코드로 조회해서 삭제하는 것.
 				System.out.print("상품코드명입력 >>");
 				code= scn.nextLine();
 			
-				
-				
-				 
+			
 				 if(m2.remove(code)) {
 					 System.out.println("삭제 완료");
 				 }else {
@@ -89,6 +91,7 @@ public class MethodMain {
 			case 9:
 				System.out.println("프로그램 종료");
 				run=false;
+				m2.save();
 				break;
 			default:
 				System.out.println("메뉴를 다시 선택하세요");

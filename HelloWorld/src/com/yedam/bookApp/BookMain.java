@@ -1,6 +1,7 @@
 package com.yedam.bookApp;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 /*
@@ -23,13 +24,13 @@ public class BookMain {
 
 	// 배열 저장 공간
 	//private Book[] bookStore = new Book[100];
-	private static User[] user = new User[3];
-	static {
-		user[0] = new User("a001", "조정민", "a002");
-		user[1] = new User("b001", "김웅", "b002");
-		user[2] = new User("c001", "조정", "a002");
-
-	}
+//	private static User[] user = new User[3];
+//	static {
+//		user[0] = new User("a001", "조정민", "a002");
+//		user[1] = new User("b001", "김웅", "b002");
+//		user[2] = new User("c001", "조정", "a002");
+//
+//	}
 	private Scanner scn = new Scanner(System.in);
 //jdbc 처리
 	BookJdbc dao = new BookJdbc();
@@ -207,17 +208,19 @@ public class BookMain {
 
 
 	// 아이디, 비밀번호 입력.
-	private boolean login(String KuserId, String Kpassword) {
-
-		for (int i = 0; i < user.length; i++) {
-			if (user[i] != null && user[i].getUserId().equals(KuserId) && user[i].getPassword().equals(Kpassword)) {
-
-				return true;
-
-			}
-		}
-
-		return false;
+	private User login(String id, String pw) {
+		MemberJdbc dao =  new MemberJdbc();
+		return dao.login(id, pw);
+//		for (int i = 0; i < user.length; i++) {
+//			if (user[i] != null && user[i].getUserId().equals(KuserId) && user[i].getPassword().equals(Kpassword)) {
+//
+//				return true;
+//
+//			}
+//		}
+//
+//		return false; 
+		//주석 처리는 배열을 이용해 로그인처리.
 	}
 
 	public void main(String[] args) { // 정적메소드
@@ -225,12 +228,16 @@ public class BookMain {
 
 		while (true) {
 			System.out.println("아이디 입력>>");
-			String userId = scn.nextLine();
+			String id = scn.nextLine();
 			System.out.println("비밀번호 입력>>");
 
-			String userpw = scn.nextLine();
-			if (login(userId, userpw)) {
-				System.out.println("로그인 성공했습니다.");
+			String pw = scn.nextLine();
+			
+			//User클래스, 맵타입을 활용해서..
+			User user =login(id,pw);
+			
+			if (user != null) {
+				System.out.println(user.getUserName()+",환영합니다. 로그인 성공했습니다.");
 				break;
 			}
 			System.out.println("로그인 실패! 다시 시도해주세요");

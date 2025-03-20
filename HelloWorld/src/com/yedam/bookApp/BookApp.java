@@ -1,7 +1,10 @@
 package com.yedam.bookApp;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /*
  * 실행클래스
@@ -9,7 +12,14 @@ import java.util.List;
 public class BookApp {
 	
 	public static void main(String[] args){
-	//	Book book = new Book();
+		BookMain mainApp = BookMain.getInstance();
+		mainApp.main(args);
+//		MemberJdbc dao = new MemberJdbc();
+//		
+//		List<Map<String,String>> list =dao.memberList();	//	Book book = new Book();
+//		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//		String json = gson.toJson(list);
+//		System.out.println(json);
 //		book.setTitle("자바스크립트 기초");
 //		book.setAuthor("신용권");
 //		book.setCompany("한빛출판사");
@@ -43,8 +53,7 @@ public class BookApp {
 //		}else {
 //			System.out.println("수정실패.");
 //		}
-		BookMain mainApp = BookMain.getInstance();
-		mainApp.main(args);
+		
 		
 //		BookMain mainApp2 = BookMain.getInstance();
 //		
