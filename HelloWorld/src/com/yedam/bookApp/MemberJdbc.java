@@ -14,7 +14,7 @@ public class MemberJdbc {
 
 	// 커넥션 생성 메소드
 	Connection getConnect() {
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@192.168.0.32:1521:xe";
 		String userId = "scott";
 		String userPw = "tiger";
 
