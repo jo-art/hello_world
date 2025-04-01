@@ -52,18 +52,19 @@ public class MainServlet extends HttpServlet {
 			PrintWriter out = resp.getWriter();
 			String html = "<h2>게시글목록</h3>";
 			html += "<table border='2'>";
-			html += "<thead><tr><th>글번호</th><th>제목</th><th>글번호</th><th>작성자</th><th>작성일시</th></tr></thead>";
+			html += "<thead><tr><th>글번호</th><th>제목</th><th>작성자</th><th>작성일시</th></tr></thead>";
 			html += "<tbody>";
 			for (BoardVO board : list) {
-				html += "<tr>";
-				html += "<td>" + board.getBoardNo() + "<td>";
-				html += "<td>" + board.getTitle() + "<td>";
-				html += "<td>" + board.getWriter() + "<td>";
-				html += "<td>" + board.getWriteDate() + "<td>";
-				html += "</tr>";
+			    html += "<tr>";
+			    html += "<td>" + board.getBoardNo() + "</td>";  // 수정된 부분
+			    html += "<td > <a href='getBoard?board_no="+board.getBoardNo()+"'>" + board.getTitle() + "</a></td>";    // 수정된 부분
+			    html += "<td>" + board.getWriter() + "</td>";   // 수정된 부분
+			    html += "<td>" + board.getWriteDate() + "</td>";// 수정된 부분
+			    html += "</tr>";
 			}
 			html += "</tbody></table>";
 			out.print(html);
+
 		}//end of try
 
 	}//end of service
