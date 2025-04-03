@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<jsp:include page="includes/header.jsp"/>
+
 <%
 	BoardVO board =(BoardVO) request.getAttribute("board");
 	String paging = (String) request.getAttribute("page");
@@ -31,4 +31,3 @@
 			</tr>
 		</table>
 	</form>
-<jsp:include page="includes/footer.jsp"/>

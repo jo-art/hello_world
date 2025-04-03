@@ -19,7 +19,7 @@ public class AddBoardControl implements Control{
 		//요청 재지정
 		req.setCharacterEncoding("utf-8");
 		if(req.getMethod().equals("GET")) {
-			req.getRequestDispatcher("/WEB-INF/views/addForm.jsp").forward(req, resp);
+			req.getRequestDispatcher("board/addForm.tiles").forward(req, resp);
 
 		}else if(req.getMethod().equals("POST")) {
 			//등록
@@ -31,12 +31,12 @@ public class AddBoardControl implements Control{
 			board.setTitle(title);
 			board.setWriter(writer);
 			board.setContent(content);
-			
+			//mybatis 활용해서 jdbc 처리,,이렇게 하면 별루임... 
 			SqlSession sqlSession = DataSource.getInstance().openSession(true);
 			BoardMapper mapper =sqlSession.getMapper(BoardMapper.class);
 			int r = mapper.insertBoard(board);
 			if(r>0) {
-				resp.sendRedirect("boardList.do");//요청 재지정
+				resp.sendRedirect("board/boardList.tiles");//요청 재지정
 
 			}else {
 				System.out.println("실패");

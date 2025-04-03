@@ -15,7 +15,12 @@ import com.yedam.control.BoardControl;
 import com.yedam.control.BoardListControl;
 import com.yedam.control.DeleteBoardControl;
 import com.yedam.control.DeleteFormControl;
+import com.yedam.control.LoginFormControl;
+import com.yedam.control.MainControl;
 import com.yedam.control.ModifyFormControl;
+import com.yedam.control.SignUpControl;
+import com.yedam.control.loginControl;
+import com.yedam.control.logoutControl;
 import com.yedam.control.ModifyBoardControl; // 클래스 이름 변경 (오타 수정)
 
 //*.do 실행
@@ -30,6 +35,7 @@ public class FrontController extends HttpServlet{
 	//intit
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+		map.put("/main.do", new MainControl());
 		map.put("/board.do", new BoardControl());
 		map.put("/boardList.do", new BoardListControl());//목록
 		//글등록
@@ -38,6 +44,12 @@ public class FrontController extends HttpServlet{
 		map.put("/modifyBoard.do", new ModifyBoardControl());//수정처리 (오타 수정 및 통일)
 		map.put("/deleteForm.do", new DeleteFormControl()); //삭제화면
 		map.put("/deleteBoard.do", new DeleteBoardControl());// 삭제처리
+		map.put("/loginForm.do", new LoginFormControl()); //로그인화면
+		map.put("/login.do", new loginControl()); // 로그인처리
+		map.put("/logout.do", new logoutControl()); //로그아웃
+		//회원가입
+		map.put("/signForm.do", new SignUpControl()); //회원가입 화면
+		map.put("/signUp.do", new SignUpControl()); //회원가입 처리
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -3,7 +3,7 @@ package com.yedam.common;
 import lombok.Getter;
 import lombok.ToString;
 
-//게시글 건수에 따른 페이징 갯수.
+//게시글 건수에 따른 페이징 갯수.(Data Transfer Object)
 @Getter
 @ToString
 public class PageDTO {
